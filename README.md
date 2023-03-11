@@ -10,7 +10,8 @@
 ```
 ---------------
 - MT6785 - A12
-Status: WIP
+
+   - Status: WIP
 ------------------------------------
 
 Specs: https://www.devicespecifications.com/en/model/38875a9f
