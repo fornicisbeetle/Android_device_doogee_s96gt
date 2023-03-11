@@ -127,9 +127,31 @@ PLATFORM_VERSION := 16.1.0
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 
+# Crypto -- testing TWRP without encrypt/decrypt
+TW_INCLUDE_CRYPTO := false
+#TW_INCLUDE_CRYPTO := true
+#TW_INCLUDE_CRYPTO_FBE := true
+#TW_INCLUDE_FBE_METADATA_DECRYPT := true
+#TW_USE_FSCRYPT_POLICY := 1
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 BOARD_ROOT_EXTRA_FOLDERS += metadata
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libkeymaster41 \
+    libpuresoftkeymasterdevice \
+    ashmemd_aidl_interface-cpp \
+    libashmemd_client
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -146,7 +168,6 @@ TW_USE_TOOLBOX := true
 TARGET_USES_MKE2FS := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_NO_BATT_PERCENT := false
 
 # TWRP Configuration
 TW_DEFAULT_LANGUAGE := ru
@@ -177,3 +198,7 @@ TARGET_USES_LOGD := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_APEX := true
 TW_INCLUDE_PYTHON := false
+
+# resetprop and magiskboot
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_REPACKTOOLS := true
