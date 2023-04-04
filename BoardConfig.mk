@@ -33,6 +33,7 @@ TARGET_BOOTLOADER_BOARD_NAME := k85v1_64
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
+
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
 
@@ -56,8 +57,8 @@ BOARD_KERNEL_SECOND_OFFSET := 0x00e88000
 BOARD_KERNEL_TAGS_OFFSET := 0x0bc08000
 BOARD_RAMDISK_OFFSET := 0x07c08000
 BOARD_DTB_OFFSET := 0x0bc08000
-BOARD_KERNEL_IMAGE_NAME := kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_INCLUDE__DTB_IN_BOOTIMG := true
@@ -190,15 +191,13 @@ TW_EXTRA_LANGUAGES := false
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
-TW_NO_SCREEN_BLANK := true
-TW_SCREEN_BLANK_ON_BOOT := true
+# TW_NO_SCREEN_BLANK := true
+# TW_SCREEN_BLANK_ON_BOOT := true
 
 # Display
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 150
-
-TW_DEVICE_VERSION := S96GT by lopestom & kass666(4PDA)
 
 # Resolution
 TW_THEME := portrait_hdpi
@@ -206,8 +205,8 @@ DEVICE_SCREEN_WIDTH := 720
 DEVICE_SCREEN_HEIGHT := 1520
 
 # Debug
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
+#TWRP_INCLUDE_LOGCAT := true
+#TARGET_USES_LOGD := true
 
 # Excludes
 TW_EXCLUDE_TWRPAPP := true
@@ -217,3 +216,4 @@ TW_INCLUDE_PYTHON := false
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_DEVICE_VERSION := S96GT by lopestom & kass666 & walkman2021 (4PDA)
